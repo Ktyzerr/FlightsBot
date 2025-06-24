@@ -5,7 +5,7 @@ from aiogram.enums import ParseMode
 import aiohttp
 import requests
 
-bot_token = '8135782654:AAFpCMOrrljABgrt3IqAP0nP65x0Lx9orFI'
+bot_token = 'Bot_TOKEN'
 
 bot = Bot(bot_token)
 dp = Dispatcher()  
@@ -13,7 +13,7 @@ dp = Dispatcher()
 async def fetch_flights(origin, destination):
     url = 'https://api.travelpayouts.com/v2/prices/month-matrix'
     headers = {
-    'X-Access-Token': '1596d4bae3c8d9059b4131f0b38f7761'
+    'X-Access-Token': 'API_TOKEN'
     }
     params = {
         'origin': origin,
@@ -21,7 +21,7 @@ async def fetch_flights(origin, destination):
         'depart_date': '2025-03',
         'currency': 'rub',
         'one_way': 'true',
-        'limit': 3  # топ 3 билета
+        'limit': 3  
     }
 
     async with aiohttp.ClientSession() as session:
@@ -42,10 +42,10 @@ async def check_flights(message:Message):
     flights = []
 
     directions = [
-        ('MOW', 'BKK'),  # Москва → Бангкок
-        ('LED', 'BKK'),  # СПб → Бангкок
-        ('MOW', 'HKT'),  # Москва → Пхукет
-        ('LED', 'HKT')   # СПб → Пхукет
+        ('MOW', 'BKK'),  
+        ('LED', 'BKK'),  
+        ('MOW', 'HKT'),  
+        ('LED', 'HKT')   
     ]
 
     for origin, dest in directions:
